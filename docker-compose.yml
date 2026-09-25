@@ -1,0 +1,15 @@
+services:
+  db_dev:                   # nome do serviço             
+    image: postgres:16
+    container_name: manicure_dev_db_container
+    environment:
+      POSTGRES_USER: ${DB_DEV_USER}
+      POSTGRES_PASSWORD: ${DB_DEV_PASSWORD}
+      POSTGRES_DB: manicure_dev_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - manicure_db_dev_data:/var/lib/postgresql/data
+
+volumes:
+  manicure_db_dev_data:
